@@ -1,0 +1,19 @@
+<h1>Todos</h1>
+ <div class="main-field">
+    <input (click)="changeAllTask()" class="general-check" type="checkbox">
+    <input (keyup.enter)="addTask()" class="input-field" placeholder="What needs to be done?" [(ngModel)]="taskName" />
+ </div>
+<app-task-list
+   (countTaskLeft)="countTaskLeft()"
+   (delNameTask)="removeTask($event)"
+   [completeTask]="allCompleteTask"
+   [taskName]="task"
+   [id]="id"
+   *ngFor="let task of todoList; let id = index">
+</app-task-list>
+<app-footer-task
+[itemsLeft]="taskLeft"
+(activeTask)="viewActiveTask()"
+(allTask)="viewAllTask()"
+(deleteCompleteTask)="deleteCompleteTask()">
+</app-footer-task>
