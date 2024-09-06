@@ -15,6 +15,7 @@ export class FooterTaskComponent implements OnInit {
   @Output() deleteCompleteTask = new EventEmitter();
   @Output() allTask = new EventEmitter();
   @Output() activeTask = new EventEmitter();
+  @Output() completedTask = new EventEmitter();
 
   public removeTask(){
     this.deleteCompleteTask.emit();
@@ -26,6 +27,10 @@ export class FooterTaskComponent implements OnInit {
 
   public chooseActiveTask() {
     this.activeTask.emit();
+  }
+
+  public chooseCompletedTask(){
+    this.completedTask.emit();
   }
 
 }

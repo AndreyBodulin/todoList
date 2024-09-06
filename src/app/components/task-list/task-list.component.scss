@@ -16,6 +16,10 @@
     font-size: 24px;
     font-family: inherit;
     margin-left: 30px;
+    font-family: inherit;
+    border: none;
+    outline: none;
+    user-select: none;
 }
 
 .task-done{
@@ -23,6 +27,10 @@
     font-family: inherit;
     margin-left: 30px;
     text-decoration: line-through;
+    font-family: inherit;
+    border: none;
+    outline: none;
+    user-select: none;
 }
 
 .delete{

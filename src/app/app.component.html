@@ -4,16 +4,20 @@
     <input (keyup.enter)="addTask()" class="input-field" placeholder="What needs to be done?" [(ngModel)]="taskName" />
  </div>
 <app-task-list
+   (changeTaskName)="changeTaskName($event)"
+   (changeStateTask)="changeStateTask($event)"
    (countTaskLeft)="countTaskLeft()"
-   (delNameTask)="removeTask($event)"
-   [completeTask]="allCompleteTask"
-   [taskName]="task"
-   [id]="id"
-   *ngFor="let task of todoList; let id = index">
+   (delTaskId)="removeTask($event)"
+   [completeTask]="task.completeTask"
+   [taskName]="task.name"
+   [id]="task.id"
+   [ngClass]="{'active': task.visible, 'inactive': !task.visible}"
+   *ngFor="let task of todoList">
 </app-task-list>
 <app-footer-task
-[itemsLeft]="taskLeft"
-(activeTask)="viewActiveTask()"
-(allTask)="viewAllTask()"
-(deleteCompleteTask)="deleteCompleteTask()">
+   [itemsLeft]="taskLeft"
+   (completedTask)="viewCompletedTask()"
+   (activeTask)="viewActiveTask()"
+   (allTask)="viewAllTask()"
+   (deleteCompleteTask)="deleteCompleteTask()">
 </app-footer-task>
